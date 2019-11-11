@@ -14,7 +14,7 @@ export const i18nMixin = baseClass => class extends baseClass {
             i18next.use(backend);
             i18next.init({
                 lng: lng,
-                debug: true,
+                debug: false,
                 defaultNS: 'app',
                 ns: ['app'],
                 fallbackLng: 'en',
