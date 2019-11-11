@@ -10,19 +10,19 @@ export const i18nMixin = baseClass => class extends baseClass {
         i18next.on('languageChanged', options => {
             this.requestUpdate()
         })
-        if (!i18next.isInitialized) {
-            i18next.use(backend)
-            i18next.init({
-                lng: 'en',
-                debug: true,
-                defaultNS: 'app',
-                ns: ['app'],
-                fallbackLng: 'en',
-                backend: {
-                    loadPath: this.languageResources || '/assets/locales/{{lng}}/{{ns}}.json'
-                }
-            })
-        }
+
+        i18next.use(backend);
+        i18next.init({
+            lng: 'en',
+            debug: true,
+            defaultNS: 'app',
+            ns: ['app'],
+            fallbackLng: 'en',
+            backend: {
+                loadPath: this.languageResources || '/assets/locales/{{lng}}/{{ns}}.json'
+            }
+        })
+
         super.firstUpdated && super.firstUpdated()
     }
 
